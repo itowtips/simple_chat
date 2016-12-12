@@ -1,1 +1,19 @@
-index
+<script type="text/javascript">
+ $(function(){
+   $(".speak-form").submit(function(event){
+     var message = $(this).find(".speak").val();
+     if (message) {
+       App.room.speak({message: message});
+     }
+     return false;
+   });
+ });
+ </script>
+
+<h1>Simple Chat</h1>
+
+ <%= form_tag "", class: "speak-form" do %>
+   <%= text_field_tag :message, "", class: "speak" %>
+ <% end %>
+
+ <div class="messages"></div>
